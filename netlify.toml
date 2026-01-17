@@ -1,0 +1,11 @@
+[[redirects]]
+from = "/sections/m.html"
+to = "/"
+status = 200
+force = false
+
+[[redirects]]
+from = "/sections/docs.html"
+to = "/docs"
+status = 200
+force = false
