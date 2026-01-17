@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Domain Restriction Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+  <header>
+    <h1>Domain Restriction — Documentation</h1>
+    <a href="index.html">← Back</a>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Include the Script</h2>
+      <pre><code>&lt;script src="https://cdn--skunkplatform.netlify.app/free/scripts/domain-restriction.js"&gt;&lt;/script&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>Global Object</h2>
+      <pre><code>window.sp_domain_restriction</code></pre>
+    </section>
+
+    <section>
+      <h2>Authorize a Domain</h2>
+      <pre><code>
+await sp_domain_restriction.addAuthorizedDomain(
+  "example.com",
+  "MY_PASSWORD",
+  ["token", "id"]
+);
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Block a Domain</h2>
+      <pre><code>
+await sp_domain_restriction.addBannedDomain(
+  "evil-site.com",
+  "MY_PASSWORD"
+);
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Validate Current Domain</h2>
+      <pre><code>
+const allowed = await sp_domain_restriction.matchDomain(
+  location.hostname,
+  [...new URLSearchParams(location.search).keys()]
+);
+
+if (!allowed) {
+  document.body.innerHTML = "403 - Forbidden";
+  throw new Error("Unauthorized domain");
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Security Notes</h2>
+      <ul>
+        <li>Client-side only</li>
+        <li>Not real security</li>
+        <li>Use backend validation for sensitive data</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>SkunkPlatform · Domain Restriction</p>
+  </footer>
+
+</body>
+</html>
