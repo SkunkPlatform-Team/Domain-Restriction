@@ -1,0 +1,5 @@
+NOTE: This Website is hosting at Netlify.
+
+The Website will have Documentations that it works for this website.
+
+@ 2026 SkunkPlatform. Read to our Terms of Service: https://skunkplatform.netlify.app/terms
